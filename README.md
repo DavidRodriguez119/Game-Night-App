@@ -1,2 +1,5 @@
-# Game-Night-App
-Plan a board game night depending on user specifications
+# Movie Selector Game
+
+The winner of a quick cards game, picks the movie
+
+
