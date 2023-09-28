@@ -91,6 +91,7 @@ fetch(requestUrl)
 });
 
 startButton.addEventListener(`click`, function(event){
-  
+  landingPage.style.display = `none`
+  usernamePage.style.display = `block`
 });
 
