@@ -90,3 +90,10 @@ fetch(requestUrl)
 
 var selectP1 = document.getElementById("select-p1");
 var selectP2 = document.getElementById("select-p2");
+
+for (let i = 0; i < movies.length; i++) {
+  var option = document.createElement("option");
+  option.setAttribute("value", i);
+  option.textContent(movies[i]);
+  selectP1.appendChild(option);
+}
