@@ -23,6 +23,11 @@ var movies = {
   },
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+});
+
 // Movies Fetch for animation
 var animation = [`soul`, `the lion king`, `spirited away`, `spider-man: across the spider-verse`, `kubo and the two strings`];
 var animationURL = animation.map((str) => str.replace(/ /g, `+`));
