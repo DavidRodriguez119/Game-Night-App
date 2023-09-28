@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
+
 <body>
     <header>
         <h1>Movie Selector Game</h1>
@@ -16,36 +18,103 @@
         <!-- Landing page section -->
         <section id="landing-page">
             <p>Welcome to the movie selector game here are the instructions yada yada</p>
-            <button id="start-button">Start Game</button>
+            <a class="waves-effect waves-light btn-large" id="start-button">Start</a>
         </section>
 
         <!-- Username page section -->
         <section id="username-page">
-            <div class="row">
-                <div class="input-field col s6">
-                  <input value="" id="first_name2" type="text" class="validate">
-                  <label class="active" for="first_name2">Player 1</label>
+            <form id="username-form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input value="" id="first_name2" type="text" class="validate">
+                        <label class="active" for="first_name2">Player 1</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input value="" id="first_name2" type="text" class="validate">
+                        <label class="active" for="first_name2">Player 2</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input value="" id="first_name2" type="text" class="validate">
-                    <label class="active" for="first_name2">Player 2</label>
-                  </div>
-              </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action" id="submit-button">Submit
+                    <i class="material-icons right"></i>
+                </button>
+            </form>
         </section>
 
         <!-- Genre page section -->
         <section id="genre-page">
-
+            <form id="genre-form">
+                <div class="input-field col s12">
+                    <select id="select-p1">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Materialize Select</label>
+                </div>
+                <div class="input-field col s12">
+                    <select id="select-p2">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Materialize Select</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right"></i>
+                </button>
+            </form>
         </section>
 
         <!-- Plot picker page -->
         <section id="plot-picker-page">
-            <!-- Materialize form here -->
-            <button id="plot-picker-button"></button>
+            <form action="#" id="plot-picker-p1">
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+            </form>
+            <form action="#" id="plot-picker-p2">
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" />
+                        <span>Red</span>
+                    </label>
+                </p>
+            </form>
+            <a class="waves-effect waves-light btn-large" id="plot-picker-button">Play Game</a>
+
         </section>
 
         <!-- Game page section -->
-        <section  id="game-page">
+        <section id="game-page">
             <img src="" alt="">
             <img id="player-1-card" src="" alt="">
             <img id="player-2-card" src="" alt="">
@@ -65,4 +134,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
