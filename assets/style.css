@@ -1,5 +1,10 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
+    background: rgba(126, 17, 17, 0.85);
+    font-family: sans-serif;
+    justify-content: centre;
+    border-radius: 10px;
 }
