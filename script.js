@@ -100,3 +100,22 @@ startButton.addEventListener(`click`, function(event){
   usernamePage.style.display = `block`
 });
 
+// Grab select elements
+var selectP1 = document.getElementById("select-p1");
+var selectP2 = document.getElementById("select-p2");
+
+// Loop for player 1 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP1.appendChild(option);
+}
+
+// Loop for player 2 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP2.appendChild(option);
+}
