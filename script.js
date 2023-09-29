@@ -88,6 +88,7 @@ fetch(requestUrl)
     console.log(data);
 });
 
+// Grab select elements
 var selectP1 = document.getElementById("select-p1");
 var selectP2 = document.getElementById("select-p2");
 
