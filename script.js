@@ -1,4 +1,4 @@
-// Global variables
+// Global variables for each user
 var user1 = {
   username: ``,
   genreSelected: ``,
@@ -11,6 +11,7 @@ var user2 = {
   plotSelected: ``,
   played: false,
 };
+// Object to store all the movies within each genre
 var movies = {
   animation: {
 
@@ -22,6 +23,15 @@ var movies = {
 
   },
 };
+// HTML section IDs into JS variables
+var landingPage = document.getElementById(`landing-page`);
+var usernamePage = document.getElementById(`username-page`);
+var genrePage = document.getElementById(`genre-page`);
+var plotPickerPage = document.getElementById(`plot-picker-page`);
+var gamePage = document.getElementById(`game-page`);
+var winPage = document.getElementById(`win-page`);
+// HTML buttons IDs into JS variables
+var startButton = document.getElementById(`start-button`);
 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
@@ -76,8 +86,6 @@ for (let i = 0; i < action.length; i++){
   });
 };
 
-console.log(movies)
-
 // Deck of Cards Fetch
 var requestUrl = `https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`;
 fetch(requestUrl)
@@ -85,7 +93,11 @@ fetch(requestUrl)
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
+});
+
+startButton.addEventListener(`click`, function(event){
+  landingPage.style.display = `none`
+  usernamePage.style.display = `block`
 });
 
 // Grab select elements
