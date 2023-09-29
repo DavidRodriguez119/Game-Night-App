@@ -116,8 +116,12 @@ submitButton.addEventListener(`click`, function(event){
   if (player1.value === `` || player2.value === ``){
     alert(`Please enter both usernames before submitting`)
   } else {
+    // Store the usernames
     user1.username = player1.value;
     user2.username = player2.value;
+    // Display the next page
+    usernamePage.style.display = `none`
+    genrePage.style.display = `block`
   }
 })
 
