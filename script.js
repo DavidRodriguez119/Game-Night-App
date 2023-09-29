@@ -122,7 +122,7 @@ submitButton.addEventListener(`click`, function(event){
     user2.username = player2.value;
     // Display the next page
     usernamePage.style.display = `none`
-    genrePage.style.display = `block`
+    genrePage.style.display = `flex`
   }
 })
 
@@ -141,7 +141,7 @@ submitButton.addEventListener(`click`, function(event){
     user2.username = player2.value;
     // Display the next page
     usernamePage.style.display = `none`
-    genrePage.style.display = `block`
+    genrePage.style.display = `flex`
   }
 });
 
