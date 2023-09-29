@@ -11,6 +11,7 @@ var user2 = {
   plotSelected: ``,
   played: false,
 };
+
 // Object to store all the movies within each genre
 var movies = {
   animation: {
@@ -23,6 +24,7 @@ var movies = {
 
   },
 };
+
 // HTML section IDs into JS variables
 var landingPage = document.getElementById(`landing-page`);
 var usernamePage = document.getElementById(`username-page`);
@@ -30,9 +32,12 @@ var genrePage = document.getElementById(`genre-page`);
 var plotPickerPage = document.getElementById(`plot-picker-page`);
 var gamePage = document.getElementById(`game-page`);
 var winPage = document.getElementById(`win-page`);
+
 // HTML buttons IDs into JS variables
 var startButton = document.getElementById(`start-button`);
+var submitButton = document.getElementById(`submit-button`);
 
+// When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
@@ -95,8 +100,66 @@ fetch(requestUrl)
   .then(function (data) {
 });
 
+// Start Button click event listener
 startButton.addEventListener(`click`, function(event){
   landingPage.style.display = `none`
   usernamePage.style.display = `block`
 });
 
+// Submit usernames Btn click event Listener
+submitButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // create variables for the two input HTML tags
+  var player1 = document.getElementById(`player-1`);
+  var player2 = document.getElementById(`player-2`);
+  // check if the users enter their usernames
+  if (player1.value === `` || player2.value === ``){
+    alert(`Please enter both usernames before submitting`)
+  } else {
+    // Store the usernames
+    user1.username = player1.value;
+    user2.username = player2.value;
+    // Display the next page
+    usernamePage.style.display = `none`
+    genrePage.style.display = `block`
+  }
+})
+
+// Submit usernames Btn click event Listener
+submitButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // create variables for the two input HTML tags
+  var player1 = document.getElementById(`player-1`);
+  var player2 = document.getElementById(`player-2`);
+  // check if the users enter their usernames
+  if (player1.value === `` || player2.value === ``){
+    alert(`Please enter both usernames before submitting`)
+  } else {
+    // Store the usernames
+    user1.username = player1.value;
+    user2.username = player2.value;
+    // Display the next page
+    usernamePage.style.display = `none`
+    genrePage.style.display = `block`
+  }
+});
+
+// Grab select elements
+var selectP1 = document.getElementById("select-p1");
+var selectP2 = document.getElementById("select-p2");
+
+// Loop for player 1 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP1.appendChild(option);
+};
+
+// Loop for player 2 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP2.appendChild(option);
+};
