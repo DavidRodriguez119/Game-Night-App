@@ -36,6 +36,7 @@ var winPage = document.getElementById(`win-page`);
 // HTML buttons IDs into JS variables
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
+var genreButton = document.getElementById(`genre-button`);
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
@@ -163,3 +164,5 @@ for (var genre in movies) {
   option.textContent = genre;
   selectP2.appendChild(option);
 };
+
+
