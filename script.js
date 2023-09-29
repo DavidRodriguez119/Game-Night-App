@@ -125,3 +125,41 @@ submitButton.addEventListener(`click`, function(event){
   }
 })
 
+// Submit usernames Btn click event Listener
+submitButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // create variables for the two input HTML tags
+  var player1 = document.getElementById(`player-1`);
+  var player2 = document.getElementById(`player-2`);
+  // check if the users enter their usernames
+  if (player1.value === `` || player2.value === ``){
+    alert(`Please enter both usernames before submitting`)
+  } else {
+    // Store the usernames
+    user1.username = player1.value;
+    user2.username = player2.value;
+    // Display the next page
+    usernamePage.style.display = `none`
+    genrePage.style.display = `block`
+  }
+});
+
+// Grab select elements
+var selectP1 = document.getElementById("select-p1");
+var selectP2 = document.getElementById("select-p2");
+
+// Loop for player 1 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP1.appendChild(option);
+};
+
+// Loop for player 2 genre selector
+for (var genre in movies) {
+  var option = document.createElement("option");
+  option.setAttribute("value", genre);
+  option.textContent = genre;
+  selectP2.appendChild(option);
+};
