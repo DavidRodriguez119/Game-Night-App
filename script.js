@@ -145,6 +145,23 @@ submitButton.addEventListener(`click`, function(event){
   }
 });
 
+// Genre button event listener
+genreButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // Check for valid selection
+  if (selectP1.value === "" || selectP2.value === "") {
+    alert("Please select genres for both players");
+  } else {
+    // Store the selected genres
+    user1.genreSelected = selectP1.value;
+    user2.genreSelected = selectP2.value;
+    // Display next page
+    genrePage.style.display = `none`;
+    plotPickerPage.style.display = `flex`;
+  }
+
+});
+
 // Grab select elements
 var selectP1 = document.getElementById("select-p1");
 var selectP2 = document.getElementById("select-p2");
@@ -165,19 +182,3 @@ for (var genre in movies) {
   selectP2.appendChild(option);
 };
 
-// Genre button event listener
-genreButton.addEventListener(`click`, function(event){
-  event.preventDefault();
-  // Check for valid selection
-  if (selectP1.value === "" || selectP2.value === "") {
-    alert("Please select genres for both players");
-  } else {
-    // Store the selected genres
-    user1.genreSelected = selectP1.value;
-    user2.genreSelected = selectP2.value;
-    // Display next page
-    genrePage.style.display = `none`;
-    plotPickerPage.style.display = `flex`;
-  }
-
-});
