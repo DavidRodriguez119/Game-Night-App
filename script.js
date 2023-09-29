@@ -36,6 +36,7 @@ var winPage = document.getElementById(`win-page`);
 // HTML buttons IDs into JS variables
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
+var genreButton = document.getElementById(`genre-button`);
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
@@ -121,7 +122,7 @@ submitButton.addEventListener(`click`, function(event){
     user2.username = player2.value;
     // Display the next page
     usernamePage.style.display = `none`
-    genrePage.style.display = `block`
+    genrePage.style.display = `flex`
   }
 })
 
@@ -140,7 +141,7 @@ submitButton.addEventListener(`click`, function(event){
     user2.username = player2.value;
     // Display the next page
     usernamePage.style.display = `none`
-    genrePage.style.display = `block`
+    genrePage.style.display = `flex`
   }
 });
 
@@ -163,3 +164,20 @@ for (var genre in movies) {
   option.textContent = genre;
   selectP2.appendChild(option);
 };
+
+// Genre button event listener
+genreButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // Check for valid selection
+  if (selectP1.value === "" || selectP2.value === "") {
+    alert("Please select genres for both players");
+  } else {
+    // Store the selected genres
+    user1.genreSelected = selectP1.value;
+    user2.genreSelected = selectP2.value;
+    // Display next page
+    genrePage.style.display = `none`;
+    plotPickerPage.style.display = `flex`;
+  }
+
+});
