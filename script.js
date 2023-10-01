@@ -155,10 +155,11 @@ plotButton.addEventListener(`click`, function(event){
   // Create boolean variable for validation
   var isCheckedP1 = false;
   var isCheckedP2 = false;
-  // Loop using if statement to check for 1 box to be checked, change variable to true
+  // Loop using if statement to check for 1 box to be checked, change variable to true, and store index of checkbox for plot text later
   for (let i = 0; i < checkBoxesP1.length; i++) {
     if (checkBoxesP1[i].checked) {
       isCheckedP1 = true;
+      var checkedP1 = i;
       break;
     }
   }
@@ -168,10 +169,11 @@ plotButton.addEventListener(`click`, function(event){
     // Return to prevent double alerts
     return;
   } else {
-    // Loop using if statement to check for 1 box to be checked, change variable to true
+    // Loop using if statement to check for 1 box to be checked, change variable to true, and store index of checkbox for plot text later
     for (let i = 0; i < checkBoxesP2.length; i++) {
       if (checkBoxesP2[i].checked) {
         isCheckedP2 = true;
+        var checkedP2 = i;
         break;
       }
     }
@@ -179,7 +181,18 @@ plotButton.addEventListener(`click`, function(event){
     if (!isCheckedP2) {
       alert("Please select one plot per player");
     } else {
-      
+      // Grab the spans containing plots
+      var spanP1 = plotPickerP1.querySelectorAll(`span`);
+      var spanP2 = plotPickerP2.querySelectorAll(`span`);
+      // Grab the span that corresponds to the checked box
+      var checkedSpanP1 = spanP1[checkedP1];
+      var checkedSpanP2 = spanP2[checkedP2];
+      // Store the plot within
+      user1.plotSelected = checkedSpanP1.textContent;
+      user2.plotSelected = checkedSpanP2.textContent; 
+      // Hide current page and display next
+      plotPickerPage.style.display = `none`;
+      gamePage.style.display = `flex`;
     }
   }
 });
