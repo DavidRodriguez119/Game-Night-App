@@ -30,3 +30,7 @@ body {
     width: 150px;
     height: auto;
 }
+
+#game-page img:hover{
+    border: solid 4px rgb(68, 255, 202);
+}

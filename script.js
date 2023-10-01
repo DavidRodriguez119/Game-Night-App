@@ -25,6 +25,11 @@ var movies = {
   },
 };
 
+// Store the initial deck in the following variable
+var deck;
+var cardUser1;
+var cardUser2;
+
 // HTML section IDs into JS variables
 var landingPage = document.getElementById(`landing-page`);
 var usernamePage = document.getElementById(`username-page`);
@@ -40,6 +45,7 @@ var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
 var genreButton = document.getElementById(`genre-button`);
 var plotButton = document.getElementById(`plot-picker-button`);
+var deckImg = document.getElementById(`deck-img`);
 
 // HTML plot picker forms into JS variables
 var plotPickerP1 = document.getElementById(`plot-picker-p1`);
@@ -108,6 +114,7 @@ fetch(requestUrl)
     return response.json();
   })
   .then(function (data) {
+    deck = data
 });
 
 // Start Button click event listener
@@ -238,6 +245,34 @@ plotButton.addEventListener(`click`, function(event){
       gamePage.style.display = `flex`;
     }
   }
+});
+
+var clicks = 0
+// deck image event listener
+deckImg.addEventListener(`click`, function game(event){
+  clicks++;
+  if (clicks <= 2){
+    // When the image is clicked, draw a card for user1
+    var requestUrl = `https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // save the usefull information to the respective user
+        if (clicks === 1){
+          cardUser1 = data.cards[0];
+          document.getElementById(`player-1-card`).setAttribute(`src`, cardUser1.image)
+          document.getElementById(`user-playing`).textContent = user2.username
+        } else {
+          cardUser2 = data.cards[0];
+          document.getElementById(`player-2-card`).setAttribute(`src`, cardUser2.image)
+        }
+
+      });
+  } else {
+    deckImg.removeEventListener(`click`, game);
+  };
 });
 
 // Grab select elements
