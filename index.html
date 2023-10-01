@@ -24,6 +24,7 @@
         <!-- Username page section -->
         <section id="username-page">
             <form id="username-form" class="holder">
+                <h5>Please enter the names of the players.</h5>
                 <div class="row">
                     <div class="input-field col s6">
                         <input value="" id="player-1" type="text" class="validate">
@@ -43,17 +44,18 @@
         <!-- Genre page section -->
         <section id="genre-page">
             <form id="genre-form" class="holder">
+                <h5>Select genre each player would like to watch.</h5>
                 <div class="input-field col s12">
                     <select id="select-p1">
                         <option value="" disabled selected>Choose your option</option>
                     </select>
-                    <label>Materialize Select</label>
+                    <label class="username-display-p1"></label>
                 </div>
                 <div class="input-field col s12">
                     <select id="select-p2">
                         <option value="" disabled selected>Choose your option</option>
                     </select>
-                    <label>Materialize Select</label>
+                    <label class="username-display-p2"></label>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action" id="genre-button">Submit
                     <i class="material-icons right"></i>
@@ -63,7 +65,9 @@
 
         <!-- Plot picker page -->
         <section id="plot-picker-page" class="holder">
+            <h5>Select a plot each player is interested in watching.</h5>
             <form action="#" id="plot-picker-p1">
+                <p class="username-display-p1"></p>
                 <p>
                     <label>
                         <input type="checkbox" />
@@ -84,6 +88,7 @@
                 </p>
             </form>
             <form action="#" id="plot-picker-p2">
+                <p class="username-display-p2"></p>
                 <p>
                     <label>
                         <input type="checkbox" />
@@ -121,7 +126,7 @@
             <h3 id="winning-movie"></h3>
             <img id="movie-poster" src="" alt="">
             <p id="winning-movie-info"></p>
-            <button id="again-button">Play Again</button>
+            <a class="waves-effect waves-light btn-large" id="again-button">Play Again</a>
         </section>
     </main>
 
