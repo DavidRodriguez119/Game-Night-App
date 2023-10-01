@@ -132,8 +132,6 @@ submitButton.addEventListener(`click`, function(event){
     // Display the next page
     usernamePage.style.display = `none`
     genrePage.style.display = `flex`
-    console.log(user1.username);
-    console.log(user2.username);
   }
   setUsernameDisplays();
 })
@@ -148,6 +146,44 @@ genreButton.addEventListener(`click`, function(event){
     // Store the selected genres
     user1.genreSelected = selectP1.value;
     user2.genreSelected = selectP2.value;
+
+    var genreSelectedObject1 = Object.keys(movies[user1.genreSelected]);
+    var genreSelectedObject2 = Object.keys(movies[user2.genreSelected]);
+    // Display plots based on user1 genre
+    for (let i = 0; i < genreSelectedObject1.length; i++){
+      // Create elements 
+      var containerP = document.createElement(`p`);
+      var label = document.createElement(`label`);
+      var checkbox = document.createElement(`input`);
+      checkbox.setAttribute(`type`, `checkbox`);
+      var plotText = document.createElement(`span`);
+      // Select the i plot
+      var plot = movies[user1.genreSelected][genreSelectedObject1[i]].Plot
+      // add content to the span tag
+      plotText.textContent = plot;
+      // append elements
+      plotPickerP1.appendChild(containerP);
+      containerP.appendChild(label);
+      label.append(checkbox, plotText);
+    };    
+    // Display plots based on user2 genre
+    for (let i = 0; i < genreSelectedObject2.length; i++){
+      // Create elements 
+      var containerP = document.createElement(`p`);
+      var label = document.createElement(`label`);
+      var checkbox = document.createElement(`input`);
+      checkbox.setAttribute(`type`, `checkbox`);
+      var plotText = document.createElement(`span`);
+      // Select the i plot
+      var plot = movies[user2.genreSelected][genreSelectedObject2[i]].Plot
+      // add content to the span tag
+      plotText.textContent = plot;
+      // append elements
+      plotPickerP2.appendChild(containerP);
+      containerP.appendChild(label);
+      label.append(checkbox, plotText);
+    };
+
     // Display next page
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
