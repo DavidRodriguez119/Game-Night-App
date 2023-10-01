@@ -37,6 +37,7 @@ var winPage = document.getElementById(`win-page`);
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
 var genreButton = document.getElementById(`genre-button`);
+var againButton = document.getElementById9(`again-button`);
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
