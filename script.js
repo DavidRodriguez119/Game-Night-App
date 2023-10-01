@@ -3,13 +3,11 @@ var user1 = {
   username: ``,
   genreSelected: ``,
   plotSelected: ``,
-  played: false,
 };
 var user2 = {  
   username: ``,
   genreSelected: ``,
   plotSelected: ``,
-  played: false,
 };
 
 // Object to store all the movies within each genre
@@ -249,7 +247,7 @@ plotButton.addEventListener(`click`, function(event){
 
 var clicks = 0
 // deck image event listener
-deckImg.addEventListener(`click`, function game(event){
+deckImg.addEventListener(`click`, function drawCards(event){
   clicks++;
   if (clicks <= 2){
     // When the image is clicked, draw a card for user1
@@ -262,13 +260,18 @@ deckImg.addEventListener(`click`, function game(event){
         // save the usefull information to the respective user
         if (clicks === 1){
           cardUser1 = data.cards[0];
+          // Show image for player 1
           document.getElementById(`player-1-card`).setAttribute(`src`, cardUser1.image)
+          document.getElementById(`player-1-card`).style.display = `block`
+          // Display instructions for player 2
           document.getElementById(`user-playing`).textContent = user2.username
         } else {
           cardUser2 = data.cards[0];
-          document.getElementById(`player-2-card`).setAttribute(`src`, cardUser2.image)
+          // Show image for player 2
+          document.getElementById(`player-2-card`).style.display = `block`
+          document.getElementById(`player-2-card`).setAttribute(`src`, cardUser2.image);
+          game ();
         }
-
       });
   } else {
     deckImg.removeEventListener(`click`, game);
@@ -313,3 +316,23 @@ function setUsernameDisplays() {
   }
 }
 
+function game (){
+  var value1;
+  var value2;
+  // Assign the value to the card of user1
+  if (cardUser1.value === `ACE`){
+    value1 = 11;
+  } else if (cardUser1.value === `KING` || cardUser1.value === `JACK` || cardUser1.value == `QUEEN`){
+    value1 = 10
+  } else {
+    value1 = parseInt(cardUser1.value)
+  }
+  // Assign the value to the card of user2
+  if (cardUser2.value === `ACE`){
+    value2 = 11;
+  } else if (cardUser2.value === `KING` || cardUser2.value === `JACK` || cardUser2.value == `QUEEN`){
+    value2 = 10
+  } else {
+    value2 = parseInt(cardUser2.value)
+  }
+}

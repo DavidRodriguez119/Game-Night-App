@@ -34,3 +34,7 @@ body {
 #game-page img:hover{
     border: solid 4px rgb(68, 255, 202);
 }
+
+#player-1-card, #player-2-card{
+    display: none;
+}
