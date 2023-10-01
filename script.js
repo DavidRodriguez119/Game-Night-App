@@ -149,6 +149,39 @@ genreButton.addEventListener(`click`, function(event){
 
 plotButton.addEventListener(`click`, function(event){
   event.preventDefault();
+  // Grab all checkboxes
+  var checkBoxesP1 = plotPickerP1.querySelectorAll(`input[type="checkbox"]`);
+  var checkBoxesP2 = plotPickerP2.querySelectorAll(`input[type="checkbox"]`);
+  // Create boolean variable for validation
+  var isCheckedP1 = false;
+  var isCheckedP2 = false;
+  // Loop using if statement to check for 1 box to be checked, change variable to true
+  for (let i = 0; i < checkBoxesP1.length; i++) {
+    if (checkBoxesP1[i].checked) {
+      isCheckedP1 = true;
+      break;
+    }
+  }
+  // Conditional statement to check if one is checked
+  if (!isCheckedP1) {
+    alert("Please select one plot per player");
+    // Return to prevent double alerts
+    return;
+  } else {
+    // Loop using if statement to check for 1 box to be checked, change variable to true
+    for (let i = 0; i < checkBoxesP2.length; i++) {
+      if (checkBoxesP2[i].checked) {
+        isCheckedP2 = true;
+        break;
+      }
+    }
+    // Conditional statement to check if one is checked
+    if (!isCheckedP2) {
+      alert("Please select one plot per player");
+    } else {
+      
+    }
+  }
 });
 
 // Grab select elements
