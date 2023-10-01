@@ -37,6 +37,11 @@ var winPage = document.getElementById(`win-page`);
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
 var genreButton = document.getElementById(`genre-button`);
+var plotButton = document.getElementById(`plot-picker-button`);
+
+// HTML plot picker forms into JS variables
+var plotPickerP1 = document.getElementById(`plot-picker-p1`);
+var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
@@ -140,7 +145,10 @@ genreButton.addEventListener(`click`, function(event){
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
   }
+});
 
+plotButton.addEventListener(`click`, function(event){
+  event.preventDefault();
 });
 
 // Grab select elements
