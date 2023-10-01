@@ -39,7 +39,13 @@ var usernameDisplayP2 = document.getElementsByClassName(`username-display-p2`);
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
 var genreButton = document.getElementById(`genre-button`);
+var plotButton = document.getElementById(`plot-picker-button`);
+
+// HTML plot picker forms into JS variables
+var plotPickerP1 = document.getElementById(`plot-picker-p1`);
+var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 var againButton = document.getElementById(`again-button`);
+
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
@@ -132,25 +138,6 @@ submitButton.addEventListener(`click`, function(event){
   setUsernameDisplays();
 })
 
-// Submit usernames Btn click event Listener
-submitButton.addEventListener(`click`, function(event){
-  event.preventDefault();
-  // create variables for the two input HTML tags
-  var player1 = document.getElementById(`player-1`);
-  var player2 = document.getElementById(`player-2`);
-  // check if the users enter their usernames
-  if (player1.value === `` || player2.value === ``){
-    alert(`Please enter both usernames before submitting`)
-  } else {
-    // Store the usernames
-    user1.username = player1.value;
-    user2.username = player2.value;
-    // Display the next page
-    usernamePage.style.display = `none`
-    genrePage.style.display = `flex`
-  }
-});
-
 // Genre button event listener
 genreButton.addEventListener(`click`, function(event){
   event.preventDefault();
@@ -165,7 +152,56 @@ genreButton.addEventListener(`click`, function(event){
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
   }
+});
 
+plotButton.addEventListener(`click`, function(event){
+  event.preventDefault();
+  // Grab all checkboxes
+  var checkBoxesP1 = plotPickerP1.querySelectorAll(`input[type="checkbox"]`);
+  var checkBoxesP2 = plotPickerP2.querySelectorAll(`input[type="checkbox"]`);
+  // Create boolean variable for validation
+  var isCheckedP1 = false;
+  var isCheckedP2 = false;
+  // Loop using if statement to check for 1 box to be checked, change variable to true, and store index of checkbox for plot text later
+  for (let i = 0; i < checkBoxesP1.length; i++) {
+    if (checkBoxesP1[i].checked) {
+      isCheckedP1 = true;
+      var checkedP1 = i;
+      break;
+    }
+  }
+  // Conditional statement to check if one is checked
+  if (!isCheckedP1) {
+    alert("Please select one plot per player");
+    // Return to prevent double alerts
+    return;
+  } else {
+    // Loop using if statement to check for 1 box to be checked, change variable to true, and store index of checkbox for plot text later
+    for (let i = 0; i < checkBoxesP2.length; i++) {
+      if (checkBoxesP2[i].checked) {
+        isCheckedP2 = true;
+        var checkedP2 = i;
+        break;
+      }
+    }
+    // Conditional statement to check if one is checked
+    if (!isCheckedP2) {
+      alert("Please select one plot per player");
+    } else {
+      // Grab the spans containing plots
+      var spanP1 = plotPickerP1.querySelectorAll(`span`);
+      var spanP2 = plotPickerP2.querySelectorAll(`span`);
+      // Grab the span that corresponds to the checked box
+      var checkedSpanP1 = spanP1[checkedP1];
+      var checkedSpanP2 = spanP2[checkedP2];
+      // Store the plot within
+      user1.plotSelected = checkedSpanP1.textContent;
+      user2.plotSelected = checkedSpanP2.textContent; 
+      // Hide current page and display next
+      plotPickerPage.style.display = `none`;
+      gamePage.style.display = `flex`;
+    }
+  }
 });
 
 // Grab select elements
