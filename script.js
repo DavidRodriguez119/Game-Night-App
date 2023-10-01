@@ -126,25 +126,6 @@ submitButton.addEventListener(`click`, function(event){
   }
 })
 
-// Submit usernames Btn click event Listener
-submitButton.addEventListener(`click`, function(event){
-  event.preventDefault();
-  // create variables for the two input HTML tags
-  var player1 = document.getElementById(`player-1`);
-  var player2 = document.getElementById(`player-2`);
-  // check if the users enter their usernames
-  if (player1.value === `` || player2.value === ``){
-    alert(`Please enter both usernames before submitting`)
-  } else {
-    // Store the usernames
-    user1.username = player1.value;
-    user2.username = player2.value;
-    // Display the next page
-    usernamePage.style.display = `none`
-    genrePage.style.display = `flex`
-  }
-});
-
 // Genre button event listener
 genreButton.addEventListener(`click`, function(event){
   event.preventDefault();
