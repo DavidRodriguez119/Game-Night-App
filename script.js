@@ -39,6 +39,7 @@ var usernameDisplayP2 = document.getElementsByClassName(`username-display-p2`);
 var startButton = document.getElementById(`start-button`);
 var submitButton = document.getElementById(`submit-button`);
 var genreButton = document.getElementById(`genre-button`);
+var againButton = document.getElementById(`again-button`);
 
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
@@ -187,6 +188,14 @@ for (var genre in movies) {
   selectP2.appendChild(option);
 };
 
+// Again Btn event Listener
+againButton.addEventListener(`click`, function(event){
+  winPage.style.display = `none`;
+  landingPage.style.display = `flex`;
+  user1.played = false;
+  user2.played = false;
+});
+
 // Function to update username displays after they are entered
 function setUsernameDisplays() {
   for (let i = 0; i < usernameDisplayP1.length; i++) {
@@ -196,3 +205,4 @@ function setUsernameDisplays() {
     usernameDisplayP2[i].textContent = user2.username;
   }
 }
+
