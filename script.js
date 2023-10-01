@@ -32,6 +32,8 @@ var genrePage = document.getElementById(`genre-page`);
 var plotPickerPage = document.getElementById(`plot-picker-page`);
 var gamePage = document.getElementById(`game-page`);
 var winPage = document.getElementById(`win-page`);
+var usernameDisplayP1 = document.getElementsByClassName(`username-display-p1`);
+var usernameDisplayP2 = document.getElementsByClassName(`username-display-p2`);
 
 // HTML buttons IDs into JS variables
 var startButton = document.getElementById(`start-button`);
@@ -124,7 +126,10 @@ submitButton.addEventListener(`click`, function(event){
     // Display the next page
     usernamePage.style.display = `none`
     genrePage.style.display = `flex`
+    console.log(user1.username);
+    console.log(user2.username);
   }
+  setUsernameDisplays();
 })
 
 // Submit usernames Btn click event Listener
@@ -183,9 +188,21 @@ for (var genre in movies) {
   selectP2.appendChild(option);
 };
 
+// Again Btn event Listener
 againButton.addEventListener(`click`, function(event){
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;
   user1.played = false;
   user2.played = false;
 });
+
+// Function to update username displays after they are entered
+function setUsernameDisplays() {
+  for (let i = 0; i < usernameDisplayP1.length; i++) {
+    usernameDisplayP1[i].textContent = user1.username;
+  }
+  for (let i = 0; i < usernameDisplayP2.length; i++) {
+    usernameDisplayP2[i].textContent = user2.username;
+  }
+}
+
