@@ -160,7 +160,8 @@ genreButton.addEventListener(`click`, function(event){
       var containerP = document.createElement(`p`);
       var label = document.createElement(`label`);
       var checkbox = document.createElement(`input`);
-      checkbox.setAttribute(`type`, `checkbox`);
+      checkbox.setAttribute(`type`, `radio`);
+      checkbox.setAttribute(`name`, `checkbox-p1`)
       var plotText = document.createElement(`span`);
       // Select the i plot
       var plot = movies[user1.genreSelected][genreSelectedObject1[i]].Plot
@@ -177,7 +178,8 @@ genreButton.addEventListener(`click`, function(event){
       var containerP = document.createElement(`p`);
       var label = document.createElement(`label`);
       var checkbox = document.createElement(`input`);
-      checkbox.setAttribute(`type`, `checkbox`);
+      checkbox.setAttribute(`type`, `radio`);
+      checkbox.setAttribute(`name`, `checkbox-p2`);
       var plotText = document.createElement(`span`);
       // Select the i plot
       var plot = movies[user2.genreSelected][genreSelectedObject2[i]].Plot
@@ -198,8 +200,8 @@ genreButton.addEventListener(`click`, function(event){
 plotButton.addEventListener(`click`, function(event){
   event.preventDefault();
   // Grab all checkboxes
-  var checkBoxesP1 = plotPickerP1.querySelectorAll(`input[type="checkbox"]`);
-  var checkBoxesP2 = plotPickerP2.querySelectorAll(`input[type="checkbox"]`);
+  var checkBoxesP1 = plotPickerP1.querySelectorAll(`input[type="radio"]`);
+  var checkBoxesP2 = plotPickerP2.querySelectorAll(`input[type="radio"]`);
   // Create boolean variable for validation
   var isCheckedP1 = false;
   var isCheckedP2 = false;
