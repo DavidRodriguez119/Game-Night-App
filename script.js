@@ -348,6 +348,7 @@ function game (){
   timer();
 }
 
+// timer to change from game page to win page
 function timer(){
   var timeLeft = 3;
   var timer = document.getElementById(`timer`);
