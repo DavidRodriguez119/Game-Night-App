@@ -369,3 +369,12 @@ function timer(){
     }
   }, 1000)
 };
+
+// Function to  display winning movie info to win page
+function displayWin() {
+  // Grab win page elements into JS variables
+  var winnerH2 = document.getElementById("winner-h2");
+  var winningMovieH3 = document.getElementById("winning-movie");
+  var winningMovieInfoUl = document.getElementById("winning-movie-info");
+
+}
