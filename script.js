@@ -341,11 +341,14 @@ function game (){
 
   if (value1 > value2) {
     gameResults.textContent = `${cardUser1.value} beats ${cardUser2.value}. ${user1.username} wins!`
+    winner = user1;
   } else {
     gameResults.textContent = `${cardUser2.value} beats ${cardUser1.value}. ${user2.username} wins!`
+    winner = user2;
   }
   document.querySelector(`#timer-text`).style.display = `block`
   timer();
+  displayWin();
 }
 
 // timer to change from game page to win page
@@ -370,11 +373,46 @@ function timer(){
   }, 1000)
 };
 
+var winner;
 // Function to  display winning movie info to win page
 function displayWin() {
   // Grab win page elements into JS variables
   var winnerH2 = document.getElementById("winner-h2");
   var winningMovieH3 = document.getElementById("winning-movie");
-  var winningMovieInfoUl = document.getElementById("winning-movie-info");
-
-}
+  var winningMoviePosterImg = document.getElementById("movie-poster");
+  var winningMovieInfoP = document.getElementById("winning-movie-info");
+  // Display the winner  to the win page
+  winnerH2.textContent = "Congratulations " + winner.username + " you won!";
+  // Initialize all variables needed
+  var winningPlot = winner.plotSelected;
+  let winningTitle = null;
+  let winningPoster = null;
+  let winningDirector = null;
+  let winningYear = null;
+  // Loop to get the genres in the movies object
+  for (let genre in movies) {
+    let movieGenre = movies[genre];
+    // Loop to get the movies in the genres
+    for (movieKey in movieGenre) {
+      let movie = movieGenre[movieKey];
+      // Check if winning plot matches plot in object
+      if (movie.Plot === winningPlot) {
+        // Set variables equal to matching movie plots info
+        winningTitle = movie.Title;
+        winningPoster = movie.Poster;
+        winningDirector = movie.Director;
+        winningYear = movie.Year;
+        // Break loop when maching
+        break;
+      }
+    }
+  // Break outer loop as well when matching
+  if (winningTitle) {
+    break;
+  }
+  }
+  // Display info to win page
+  winningMovieH3.textContent = winningTitle;
+  winningMoviePosterImg.setAttribute("src", winningPoster);
+  winningMovieInfoP.textContent = "Fun Fact: " + winningTitle + " was released in " + winningYear + " and was directed by " + winningDirector + ".";
+};
