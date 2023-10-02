@@ -335,4 +335,36 @@ function game (){
   } else {
     value2 = parseInt(cardUser2.value)
   }
+
+  // compare & show game results
+  var gameResults = document.getElementById(`game-results`);
+
+  if (value1 > value2) {
+    gameResults.textContent = `${cardUser1.value} beats ${cardUser2.value}. ${user1.username} wins!`
+  } else {
+    gameResults.textContent = `${cardUser2.value} beats ${cardUser1.value}. ${user2.username} wins!`
+  }
+  document.querySelector(`#timer-text`).style.display = `block`
+  timer();
 }
+
+function timer(){
+  var timeLeft = 3;
+  var timer = document.getElementById(`timer`);
+
+  var timeInterval = setInterval(function(){
+    // Display seconds in screen
+    timer.textContent = timeLeft;
+
+    // reduce time
+    timeLeft--;
+
+    // checki when time is 0
+    if (timeLeft < 0){
+      // stop the time
+      clearInterval(timeInterval);
+      gamePage.style.display = `none`
+      winPage.style.display = `flex`
+    }
+  }, 1000)
+};

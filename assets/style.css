@@ -38,3 +38,7 @@ body {
 #player-1-card, #player-2-card{
     display: none;
 }
+
+#timer-text{
+    display: none;
+}
