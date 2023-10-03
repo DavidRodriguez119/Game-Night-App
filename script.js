@@ -75,7 +75,7 @@ var animationURL = animation.map((str) => str.replace(/ /g, `+`));
 var animationVariables = animation.map((str) => str.replace(/ /g, ``));
 
 for (let i = 0; i < animation.length; i++){
-  var requestUrl = `http://www.omdbapi.com/?apikey=b8b94e2d&t=${animationURL[i]}`;
+  var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${animationURL[i]}`;
   fetch(requestUrl)
       .then(function (response) {
         return response.json();
@@ -91,7 +91,7 @@ var horrorURL = horror.map((str) => str.replace(/ /g, `+`));
 var horrorVariables = horror.map((str) => str.replace(/ /g, ``));
 
 for (let i = 0; i < horror.length; i++){
-  var requestUrl = `http://www.omdbapi.com/?apikey=b8b94e2d&t=${horrorURL[i]}`;
+  var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${horrorURL[i]}`;
   fetch(requestUrl)
       .then(function (response) {
         return response.json();
@@ -107,7 +107,7 @@ var actionURL = action.map((str) => str.replace(/ /g, `+`));
 var actionVariables = action.map((str) => str.replace(/ /g, ``));
 
 for (let i = 0; i < action.length; i++){
-  var requestUrl = `http://www.omdbapi.com/?apikey=b8b94e2d&t=${actionURL[i]}`;
+  var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${actionURL[i]}`;
   fetch(requestUrl)
       .then(function (response) {
         return response.json();
@@ -415,7 +415,7 @@ function displayWin() {
   var winningMoviePosterImg = document.getElementById("movie-poster");
   var winningMovieInfoP = document.getElementById("winning-movie-info");
   // Display the winner  to the win page
-  winnerH2.textContent = "Congratulations " + winner.username + " you won!";
+  winnerH2.textContent = "Congratulations " + winner.username;
   // Initialize all variables needed
   var winningPlot = winner.plotSelected;
   let winningTitle = null;
