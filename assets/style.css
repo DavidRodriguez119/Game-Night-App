@@ -18,6 +18,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    color: white;
 }
 
 body {
@@ -29,6 +30,36 @@ body {
 
 p {
     font-size: 145%;
+}
+
+option {
+    background: rgba(53, 101, 77, 1);
+    color: white;
+}
+
+.button-color {
+    background: rgba(98, 74, 46, 1);
+}
+
+.button-color:hover {
+    background: rgb(71, 54, 34);
+}
+
+.input-field input[type="text"] {
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.select-color .dropdown-content li {
+    background-color: rgba(53, 101, 77, 1); 
+}
+
+.select-color .dropdown-content li:hover {
+    background-color: rgb(35, 66, 51); 
+}
+  
+.select-color .dropdown-content li span {
+    color: white; 
 }
 
 #game-page img{
