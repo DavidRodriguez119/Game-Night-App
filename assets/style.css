@@ -3,7 +3,6 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    background: rgba(126, 17, 17, 0.85);
     font-family: sans-serif;
     border-radius: 10px;
 }
@@ -12,7 +11,8 @@
     width: 100%;
     height: auto;
     padding: 5px;
-    border: solid rgba(1, 1, 218, 0.812);
+    border: solid rgba(255, 255, 255, 1);
+    background: rgba(53, 101, 77, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +21,7 @@
 }
 
 body {
+    background: rgba(98, 74, 46, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
