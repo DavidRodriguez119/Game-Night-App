@@ -90,4 +90,8 @@ option {
     border: 2px solid white;
 }
 
+.modal {
+    background-color:  rgba(98, 74, 46, 1);
+}
+
 
