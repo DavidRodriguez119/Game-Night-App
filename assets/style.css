@@ -17,9 +17,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     color: white;
-    max-width: 75%;
+    max-width: 80%;
 }
 
 main {

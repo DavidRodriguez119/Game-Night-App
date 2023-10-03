@@ -415,7 +415,7 @@ function displayWin() {
   var winningMoviePosterImg = document.getElementById("movie-poster");
   var winningMovieInfoP = document.getElementById("winning-movie-info");
   // Display the winner  to the win page
-  winnerH2.textContent = "Congratulations " + winner.username + " you won!";
+  winnerH2.textContent = "Congratulations " + winner.username;
   // Initialize all variables needed
   var winningPlot = winner.plotSelected;
   let winningTitle = null;
