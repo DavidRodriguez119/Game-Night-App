@@ -51,6 +51,14 @@ var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 var againButton = document.getElementById(`again-button`);
 
 var gameResults = document.getElementById(`game-results`);
+
+// hide all pages but landing page on default
+usernamePage.style.display = 'none';
+genrePage.style.display = 'none';
+plotPickerPage.style.display = 'none';
+gamePage.style.display = 'none';
+winPage.style.display = 'none';
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
