@@ -217,9 +217,6 @@ genreButton.addEventListener(`click`, function(event){
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
     checkboxContainer = document.getElementsByClassName("checkbox-container");
-    console.log(checkboxContainer);
-    console.log(checkboxContainer.length);
-  
   }
 });
 
@@ -344,15 +341,12 @@ againButton.addEventListener(`click`, function(event){
   timerNum.textContent = ``;
   
   // reset the clicks variable
-  clicks = 0
-
+  clicks = 0;
   var checkboxLength = checkboxContainer.length;
-  console.log(checkboxLength);
+
   for (let i = 0; i < checkboxLength; i++) {
     checkboxContainer[0].remove();
-    console.log(i);
-    }
-    console.log(checkboxContainer);
+  };
   // Display the Start page
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;  
@@ -365,8 +359,8 @@ function setUsernameDisplays() {
   }
   for (let i = 0; i < usernameDisplayP2.length; i++) {
     usernameDisplayP2[i].textContent = user2.username;
-  }
-}
+  };
+};
 
 function game (){
   var value1;
