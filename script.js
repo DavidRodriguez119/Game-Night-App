@@ -50,7 +50,7 @@ var plotPickerP1 = document.getElementById(`plot-picker-p1`);
 var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 var againButton = document.getElementById(`again-button`);
 
-
+var gameResults = document.getElementById(`game-results`);
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
@@ -248,9 +248,9 @@ plotButton.addEventListener(`click`, function(event){
 });
 
 var clicks = 0
-// deck image event listener
-deckImg.addEventListener(`click`, function drawCards(event){
+function drawCards (){
   clicks++;
+  gameResults.textContent = ``
   if (clicks <= 2){
     // When the image is clicked, draw a card for user1
     var requestUrl = `https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`
@@ -275,10 +275,13 @@ deckImg.addEventListener(`click`, function drawCards(event){
           game ();
         }
       });
-  } else {
-    deckImg.removeEventListener(`click`, game);
-  };
-});
+    } else {
+      deckImg.removeEventListener(`click`, game);
+    };
+};
+
+// deck image event listener
+deckImg.addEventListener(`click`, drawCards);
 
 // Grab select elements
 var selectP1 = document.getElementById("select-p1");
@@ -339,12 +342,17 @@ function game (){
   }
 
   // compare & show game results
-  var gameResults = document.getElementById(`game-results`);
 
-  if (value1 > value2) {
+  if (value1 == value2) {
+    gameResults.textContent = `TIE! Play again.`
+    document.getElementById(`user-playing`).textContent = user1.username
+    clicks = 0
+    deckImg.addEventListener(`click`, drawCards);
+    return;
+  } else if (value1 > value2) {
     gameResults.textContent = `${cardUser1.value} beats ${cardUser2.value}. ${user1.username} wins!`
     winner = user1;
-  } else {
+  } else if (value1 < value2) {
     gameResults.textContent = `${cardUser2.value} beats ${cardUser1.value}. ${user2.username} wins!`
     winner = user2;
   }
