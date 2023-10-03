@@ -152,7 +152,7 @@ submitButton.addEventListener(`click`, function(event){
   }
   setUsernameDisplays();
 })
-
+var checkboxContainer
 // Genre button event listener
 genreButton.addEventListener(`click`, function(event){
   event.preventDefault();
@@ -174,6 +174,7 @@ genreButton.addEventListener(`click`, function(event){
       var checkbox = document.createElement(`input`);
       checkbox.setAttribute(`type`, `radio`);
       checkbox.setAttribute(`name`, `checkbox-p1`)
+      containerP.setAttribute(`class`, 'checkbox-container');
       var plotText = document.createElement(`span`);
       // Select the i plot
       var plot = movies[user1.genreSelected][genreSelectedObject1[i]].Plot
@@ -192,6 +193,7 @@ genreButton.addEventListener(`click`, function(event){
       var checkbox = document.createElement(`input`);
       checkbox.setAttribute(`type`, `radio`);
       checkbox.setAttribute(`name`, `checkbox-p2`);
+      containerP.setAttribute(`class`, 'checkbox-container');
       var plotText = document.createElement(`span`);
       // Select the i plot
       var plot = movies[user2.genreSelected][genreSelectedObject2[i]].Plot
@@ -206,6 +208,10 @@ genreButton.addEventListener(`click`, function(event){
     // Display next page
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
+    checkboxContainer = document.getElementsByClassName("checkbox-container");
+    console.log(checkboxContainer);
+    console.log(checkboxContainer.length);
+  
   }
 });
 
@@ -330,6 +336,13 @@ againButton.addEventListener(`click`, function(event){
   // reset the clicks variable
   clicks = 0
 
+  var checkboxLength = checkboxContainer.length;
+  console.log(checkboxLength);
+  for (let i = 0; i < checkboxLength; i++) {
+    checkboxContainer[0].remove();
+    console.log(i);
+    }
+    console.log(checkboxContainer);
   // Display the Start page
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;  
