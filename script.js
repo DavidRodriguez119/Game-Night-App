@@ -63,6 +63,11 @@ plotPickerPage.style.display = 'none';
 gamePage.style.display = 'none';
 winPage.style.display = 'none';
 
+// Modals IDs to JS variables
+var usernamesModal = document.getElementById(`modal1`);
+var genreModal = document.getElementById(`modal2`);
+var plotsModal = document.getElementById(`modal3`);
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('select');
@@ -140,8 +145,10 @@ submitButton.addEventListener(`click`, function (event) {
   var player1 = document.getElementById(`player-1`);
   var player2 = document.getElementById(`player-2`);
   // check if the users enter their usernames
-  if (player1.value === `` || player2.value === ``) {
-    alert(`Please enter both usernames before submitting`)
+  if (player1.value === `` || player2.value === ``){
+    // var elems = usernamesModal;
+    var  modalInstance = M.Modal.init(usernamesModal);
+    modalInstance.open();
   } else {
     // Store the usernames
     user1.username = player1.value;
@@ -158,7 +165,8 @@ genreButton.addEventListener(`click`, function (event) {
   event.preventDefault();
   // Check for valid selection
   if (selectP1.value === "" || selectP2.value === "") {
-    alert("Please select genres for both players");
+    var  modalInstance = M.Modal.init(genreModal);
+    modalInstance.open();
   } else {
     // Store the selected genres
     user1.genreSelected = selectP1.value;
@@ -209,9 +217,6 @@ genreButton.addEventListener(`click`, function (event) {
     genrePage.style.display = `none`;
     plotPickerPage.style.display = `flex`;
     checkboxContainer = document.getElementsByClassName("checkbox-container");
-    console.log(checkboxContainer);
-    console.log(checkboxContainer.length);
-
   }
 });
 
@@ -232,8 +237,9 @@ plotButton.addEventListener(`click`, function (event) {
     }
   }
   // Conditional statement to check if one is checked
-  if (!isCheckedP1) {
-    alert("Please select one plot per player");
+  if (!isCheckedP1) {    
+    var  modalInstance = M.Modal.init(plotsModal);
+    modalInstance.open();
     // Return to prevent double alerts
     return;
   } else {
@@ -247,7 +253,8 @@ plotButton.addEventListener(`click`, function (event) {
     }
     // Conditional statement to check if one is checked
     if (!isCheckedP2) {
-      alert("Please select one plot per player");
+      var  modalInstance = M.Modal.init(plotsModal);
+      modalInstance.open();
     } else {
       // Grab the spans containing plots
       var spanP1 = plotPickerP1.querySelectorAll(`span`);
@@ -334,15 +341,12 @@ againButton.addEventListener(`click`, function (event) {
   timerNum.textContent = ``;
 
   // reset the clicks variable
-  clicks = 0
-
+  clicks = 0;
   var checkboxLength = checkboxContainer.length;
-  console.log(checkboxLength);
+
   for (let i = 0; i < checkboxLength; i++) {
     checkboxContainer[0].remove();
-    console.log(i);
-  }
-  console.log(checkboxContainer);
+  };
   // Display the Start page
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;
@@ -355,8 +359,8 @@ function setUsernameDisplays() {
   }
   for (let i = 0; i < usernameDisplayP2.length; i++) {
     usernameDisplayP2[i].textContent = user2.username;
-  }
-}
+  };
+};
 
 function game() {
   var value1;
@@ -399,8 +403,8 @@ function game() {
 }
 
 // timer to change from game page to win page
-function timer() {
-  var timeLeft = 3;
+function timer(){
+  var timeLeft = 5;
 
   var timeInterval = setInterval(function () {
     // Display seconds in screen
