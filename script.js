@@ -51,6 +51,10 @@ var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 var againButton = document.getElementById(`again-button`);
 
 var gameResults = document.getElementById(`game-results`);
+var player1Card = document.getElementById(`player-1-card`);
+var player2Card = document.getElementById(`player-2-card`);
+var timerNum = document.getElementById(`timer`);
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
@@ -135,8 +139,8 @@ submitButton.addEventListener(`click`, function(event){
     user1.username = player1.value;
     user2.username = player2.value;
     // Display the next page
-    usernamePage.style.display = `none`
-    genrePage.style.display = `flex`
+    usernamePage.style.display = `none`;
+    genrePage.style.display = `flex`;
   }
   setUsernameDisplays();
 })
@@ -263,15 +267,15 @@ function drawCards (){
         if (clicks === 1){
           cardUser1 = data.cards[0];
           // Show image for player 1
-          document.getElementById(`player-1-card`).setAttribute(`src`, cardUser1.image)
-          document.getElementById(`player-1-card`).style.display = `block`
+          player1Card.setAttribute(`src`, cardUser1.image)
+          player1Card.style.display = `block`
           // Display instructions for player 2
           document.getElementById(`user-playing`).textContent = user2.username
         } else {
           cardUser2 = data.cards[0];
           // Show image for player 2
-          document.getElementById(`player-2-card`).style.display = `block`
-          document.getElementById(`player-2-card`).setAttribute(`src`, cardUser2.image);
+          player2Card.style.display = `block`
+          player2Card.setAttribute(`src`, cardUser2.image);
           game ();
         }
       });
@@ -305,10 +309,22 @@ for (var genre in movies) {
 
 // Again Btn event Listener
 againButton.addEventListener(`click`, function(event){
+  // Hide the cards and winner 
+  player1Card.setAttribute(`src`, ``)
+  player1Card.style.display = `none`
+  player2Card.setAttribute(`src`, ``)
+  player2Card.style.display = `none`
+
+  gameResults.textContent = ``
+  document.querySelector(`#timer-text`).style.display = `none`
+  timerNum.textContent = ``;
+  
+  // reset the clicks variable
+  clicks = 0
+
+  // Display the Start page
   winPage.style.display = `none`;
-  landingPage.style.display = `flex`;
-  user1.played = false;
-  user2.played = false;
+  landingPage.style.display = `flex`;  
 });
 
 // Function to update username displays after they are entered
@@ -364,11 +380,10 @@ function game (){
 // timer to change from game page to win page
 function timer(){
   var timeLeft = 3;
-  var timer = document.getElementById(`timer`);
 
   var timeInterval = setInterval(function(){
     // Display seconds in screen
-    timer.textContent = timeLeft;
+    timerNum.textContent = timeLeft;
 
     // reduce time
     timeLeft--;
