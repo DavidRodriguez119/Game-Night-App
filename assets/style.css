@@ -1,5 +1,86 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
+    font-family: 'Limelight', cursive;
+    border-radius: 10px;
 }
+
+.holder {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: solid rgba(255, 255, 255, 1);
+    background: rgba(53, 101, 77, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+body {
+    background: rgba(98, 74, 46, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    font-size: 145%;
+}
+
+option {
+    background: rgba(53, 101, 77, 1);
+    color: white;
+}
+
+.button-color {
+    background: rgba(98, 74, 46, 1);
+}
+
+.button-color:hover {
+    background: rgb(71, 54, 34);
+}
+
+.input-field input[type="text"] {
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.select-color .dropdown-content li {
+    background-color: rgba(53, 101, 77, 1); 
+}
+
+.select-color .dropdown-content li:hover {
+    background-color: rgb(35, 66, 51); 
+}
+  
+.select-color .dropdown-content li span {
+    color: white; 
+}
+
+#game-page img{
+    width: 150px;
+    height: auto;
+}
+
+#game-page img:hover{
+    border: solid 4px rgb(68, 255, 202);
+}
+
+#player-1-card, #player-2-card{
+    display: none;
+}
+
+#timer-text{
+    display: none;
+}
+
+[type="radio"]:not(:checked) + span:before {
+    border: 2px solid white;
+}
+
+
