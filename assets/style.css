@@ -3,7 +3,6 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    background: rgba(126, 17, 17, 1);
     font-family: 'Limelight', cursive;
     border-radius: 10px;
 }
@@ -26,6 +25,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+p {
+    font-size: 145%;
 }
 
 #game-page img{

@@ -55,6 +55,14 @@ var player1Card = document.getElementById(`player-1-card`);
 var player2Card = document.getElementById(`player-2-card`);
 var timerNum = document.getElementById(`timer`);
 
+
+// hide all pages but landing page on default
+usernamePage.style.display = 'none';
+genrePage.style.display = 'none';
+plotPickerPage.style.display = 'none';
+gamePage.style.display = 'none';
+winPage.style.display = 'none';
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
