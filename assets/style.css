@@ -47,3 +47,9 @@ p {
 #timer-text{
     display: none;
 }
+
+[type="radio"]:not(:checked) + span:before {
+    border: 2px solid white;
+}
+
+
