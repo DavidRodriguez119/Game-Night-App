@@ -27,6 +27,10 @@ body {
     align-items: center;
 }
 
+p {
+    font-size: 145%;
+}
+
 #game-page img{
     width: 150px;
     height: auto;
