@@ -353,6 +353,8 @@ againButton.addEventListener(`click`, function (event) {
   player1Card.style.display = `none`
   player2Card.setAttribute(`src`, ``)
   player2Card.style.display = `none`
+  card1Text.textContent = ``;
+  card2Text.textContent = ``;
 
   gameResults.textContent = ``
   document.querySelector(`#timer-text`).style.display = `none`
