@@ -111,3 +111,7 @@ option {
     font-family: 'Courier New', Courier, monospace;
     color: yellow;
 }
+
+#winner-h2 {
+    text-align: center;
+}
