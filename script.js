@@ -4,7 +4,7 @@ var user1 = {
   genreSelected: ``,
   plotSelected: ``,
 };
-var user2 = {  
+var user2 = {
   username: ``,
   genreSelected: ``,
   plotSelected: ``,
@@ -15,7 +15,7 @@ var movies = {
   animation: {
 
   },
-  action:  {
+  action: {
 
   },
   horror: {
@@ -71,7 +71,7 @@ var genreModal = document.getElementById(`modal2`);
 var plotsModal = document.getElementById(`modal3`);
 
 // When the app is loaded do the following:
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
 });
@@ -81,15 +81,15 @@ var animation = [`soul`, `the lion king`, `spirited away`, `spider-man: across t
 var animationURL = animation.map((str) => str.replace(/ /g, `+`));
 var animationVariables = animation.map((str) => str.replace(/ /g, ``));
 
-for (let i = 0; i < animation.length; i++){
+for (let i = 0; i < animation.length; i++) {
   var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${animationURL[i]}`;
   fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        movies.animation[animationVariables[i]] = data
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      movies.animation[animationVariables[i]] = data
+    });
 };
 
 // Movies Fetch for horror
@@ -97,15 +97,15 @@ var horror = [`the unholy`, `the conjuring`, `the pope's exorcist`, `annabelle c
 var horrorURL = horror.map((str) => str.replace(/ /g, `+`));
 var horrorVariables = horror.map((str) => str.replace(/ /g, ``));
 
-for (let i = 0; i < horror.length; i++){
+for (let i = 0; i < horror.length; i++) {
   var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${horrorURL[i]}`;
   fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        movies.horror[horrorVariables[i]] = data
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      movies.horror[horrorVariables[i]] = data
+    });
 };
 
 // Movies Fetch for action
@@ -113,15 +113,15 @@ var action = [`die hard`, `john wick`, `the matrix`, `casino royale`, `the dark 
 var actionURL = action.map((str) => str.replace(/ /g, `+`));
 var actionVariables = action.map((str) => str.replace(/ /g, ``));
 
-for (let i = 0; i < action.length; i++){
+for (let i = 0; i < action.length; i++) {
   var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${actionURL[i]}`;
   fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        movies.action[actionVariables[i]] = data
-  });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      movies.action[actionVariables[i]] = data
+    });
 };
 
 // Deck of Cards Fetch
@@ -132,16 +132,16 @@ fetch(requestUrl)
   })
   .then(function (data) {
     deck = data
-});
+  });
 
 // Start Button click event listener
-startButton.addEventListener(`click`, function(event){
+startButton.addEventListener(`click`, function (event) {
   landingPage.style.display = `none`
   usernamePage.style.display = `block`
 });
 
 // Submit usernames Btn click event Listener
-submitButton.addEventListener(`click`, function(event){
+submitButton.addEventListener(`click`, function (event) {
   event.preventDefault();
   // create variables for the two input HTML tags
   var player1 = document.getElementById(`player-1`);
@@ -163,7 +163,7 @@ submitButton.addEventListener(`click`, function(event){
 })
 var checkboxContainer
 // Genre button event listener
-genreButton.addEventListener(`click`, function(event){
+genreButton.addEventListener(`click`, function (event) {
   event.preventDefault();
   // Check for valid selection
   if (selectP1.value === "" || selectP2.value === "") {
@@ -177,7 +177,7 @@ genreButton.addEventListener(`click`, function(event){
     var genreSelectedObject1 = Object.keys(movies[user1.genreSelected]);
     var genreSelectedObject2 = Object.keys(movies[user2.genreSelected]);
     // Display plots based on user1 genre
-    for (let i = 0; i < genreSelectedObject1.length; i++){
+    for (let i = 0; i < genreSelectedObject1.length; i++) {
       // Create elements 
       var containerP = document.createElement(`p`);
       var label = document.createElement(`label`);
@@ -194,9 +194,9 @@ genreButton.addEventListener(`click`, function(event){
       plotPickerP1.appendChild(containerP);
       containerP.appendChild(label);
       label.append(checkbox, plotText);
-    };    
+    };
     // Display plots based on user2 genre
-    for (let i = 0; i < genreSelectedObject2.length; i++){
+    for (let i = 0; i < genreSelectedObject2.length; i++) {
       // Create elements 
       var containerP = document.createElement(`p`);
       var label = document.createElement(`label`);
@@ -222,7 +222,7 @@ genreButton.addEventListener(`click`, function(event){
   }
 });
 
-plotButton.addEventListener(`click`, function(event){
+plotButton.addEventListener(`click`, function (event) {
   event.preventDefault();
   // Grab all checkboxes
   var checkBoxesP1 = plotPickerP1.querySelectorAll(`input[type="radio"]`);
@@ -266,7 +266,7 @@ plotButton.addEventListener(`click`, function(event){
       var checkedSpanP2 = spanP2[checkedP2];
       // Store the plot within
       user1.plotSelected = checkedSpanP1.textContent;
-      user2.plotSelected = checkedSpanP2.textContent; 
+      user2.plotSelected = checkedSpanP2.textContent;
       // Hide current page and display next
       plotPickerPage.style.display = `none`;
       gamePage.style.display = `flex`;
@@ -275,10 +275,10 @@ plotButton.addEventListener(`click`, function(event){
 });
 
 var clicks = 0
-function drawCards (){
+function drawCards() {
   clicks++;
   gameResults.textContent = ``
-  if (clicks <= 2){
+  if (clicks <= 2) {
     // When the image is clicked, draw a card for user1
     var requestUrl = `https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`
     fetch(requestUrl)
@@ -287,7 +287,7 @@ function drawCards (){
       })
       .then(function (data) {
         // save the usefull information to the respective user
-        if (clicks === 1){
+        if (clicks === 1) {
           cardUser1 = data.cards[0];
           // Show image for player 1
           player1Card.setAttribute(`src`, cardUser1.image)
@@ -301,12 +301,12 @@ function drawCards (){
           player2Card.style.display = `block`
           player2Card.setAttribute(`src`, cardUser2.image);
           card2Text.textContent = `${user2.username} - ${cardUser2.value} of ${cardUser2.suit}`
-          game ();
+          game();
         }
       });
-    } else {
-      deckImg.removeEventListener(`click`, game);
-    };
+  } else {
+    deckImg.removeEventListener(`click`, game);
+  };
 };
 
 // deck image event listener
@@ -333,7 +333,7 @@ for (var genre in movies) {
 };
 
 // Again Btn event Listener
-againButton.addEventListener(`click`, function(event){
+againButton.addEventListener(`click`, function (event) {
   // Hide the cards and winner 
   player1Card.setAttribute(`src`, ``)
   player1Card.style.display = `none`
@@ -343,7 +343,7 @@ againButton.addEventListener(`click`, function(event){
   gameResults.textContent = ``
   document.querySelector(`#timer-text`).style.display = `none`
   timerNum.textContent = ``;
-  
+
   // reset the clicks variable
   clicks = 0;
   var checkboxLength = checkboxContainer.length;
@@ -353,7 +353,7 @@ againButton.addEventListener(`click`, function(event){
   };
   // Display the Start page
   winPage.style.display = `none`;
-  landingPage.style.display = `flex`;  
+  landingPage.style.display = `flex`;
 });
 
 // Function to update username displays after they are entered
@@ -366,21 +366,21 @@ function setUsernameDisplays() {
   };
 };
 
-function game (){
+function game() {
   var value1;
   var value2;
   // Assign the value to the card of user1
-  if (cardUser1.value === `ACE`){
+  if (cardUser1.value === `ACE`) {
     value1 = 11;
-  } else if (cardUser1.value === `KING` || cardUser1.value === `JACK` || cardUser1.value == `QUEEN`){
+  } else if (cardUser1.value === `KING` || cardUser1.value === `JACK` || cardUser1.value == `QUEEN`) {
     value1 = 10
   } else {
     value1 = parseInt(cardUser1.value)
   }
   // Assign the value to the card of user2
-  if (cardUser2.value === `ACE`){
+  if (cardUser2.value === `ACE`) {
     value2 = 11;
-  } else if (cardUser2.value === `KING` || cardUser2.value === `JACK` || cardUser2.value == `QUEEN`){
+  } else if (cardUser2.value === `KING` || cardUser2.value === `JACK` || cardUser2.value == `QUEEN`) {
     value2 = 10
   } else {
     value2 = parseInt(cardUser2.value)
@@ -410,7 +410,7 @@ function game (){
 function timer(){
   var timeLeft = 5;
 
-  var timeInterval = setInterval(function(){
+  var timeInterval = setInterval(function () {
     // Display seconds in screen
     timerNum.textContent = timeLeft;
 
@@ -418,7 +418,7 @@ function timer(){
     timeLeft--;
 
     // checki when time is 0
-    if (timeLeft < 0){
+    if (timeLeft < 0) {
       // stop the time
       clearInterval(timeInterval);
       gamePage.style.display = `none`
@@ -460,10 +460,10 @@ function displayWin() {
         break;
       }
     }
-  // Break outer loop as well when matching
-  if (winningTitle) {
-    break;
-  }
+    // Break outer loop as well when matching
+    if (winningTitle) {
+      break;
+    }
   }
   // Display info to win page
   winningMovieH3.textContent = winningTitle;
