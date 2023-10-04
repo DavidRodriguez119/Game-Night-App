@@ -104,10 +104,16 @@ option {
 #cards-container div {
     text-align: center;
     padding: 10px;
+    max-width: 49%;
+    height: 270px;
 }
 
 #card1-text, #card2-text{
     font-size: small;
     font-family: 'Courier New', Courier, monospace;
     color: yellow;
+}
+
+#winner-h2 {
+    text-align: center;
 }
