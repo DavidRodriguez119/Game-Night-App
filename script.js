@@ -1,3 +1,4 @@
+
 // Global variables for each user
 var user1 = {
   username: ``,
