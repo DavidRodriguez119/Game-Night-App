@@ -368,6 +368,8 @@ againButton.addEventListener(`click`, function (event) {
   // Display the Start page
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;  
+  // Call function to display last winner message
+  displayLastWinner();
 });
 
 // Function to update username displays after they are entered
