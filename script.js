@@ -79,7 +79,7 @@ function displayLastWinner() {
 if (localStorage.getItem("lastWinner" && "lastMovie") !== null) {
 var previousWinner = localStorage.getItem("lastWinner");
 var previousMovie = localStorage.getItem("lastMovie")
-lastTimeP.textContent = "Last time you played " + previousWinner + " won and you watched " + previousMovie + " who will win this time?"
+lastTimeP.textContent = "Last time you played " + previousWinner + " won and you watched " + previousMovie + "!  Who will win this time?"
 landingPage.appendChild(lastTimeP);
 };
 }
