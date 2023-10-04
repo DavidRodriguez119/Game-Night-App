@@ -71,6 +71,7 @@
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
                 </div>
             </div>
+
             <!-- Genre Page Content -->
             <form id="genre-form">
                 <h5>Select genre each player would like to watch.</h5>
@@ -119,8 +120,16 @@
         <section id="game-page" class="holder">
             <p><span class="username-display-p1" id="user-playing"></span> draw a card by clicking on the deck:</p>
             <img id="deck-img" src="assets/card-op1.png" alt="image of a deck of cards">
-            <img id="player-1-card" src="" alt="card picked by user1">
-            <img id="player-2-card" src="" alt="card picked by user2">
+            <div id="cards-container">
+                <div id="card1-container">
+                    <img id="player-1-card" src="" alt="card picked by user1">
+                    <p id="card1-text"></p>
+                </div>
+                <div id="card2-container">
+                    <img id="player-2-card" src="" alt="card picked by user2">
+                    <p id="card2-text"></p>
+                </div>                
+            </div>
             <p id="game-results"></p>
             <p id="timer-text">That means the chosen movie is ...</p>
             <p id="timer"></p>

@@ -50,11 +50,13 @@ var plotPickerP1 = document.getElementById(`plot-picker-p1`);
 var plotPickerP2 = document.getElementById(`plot-picker-p2`);
 var againButton = document.getElementById(`again-button`);
 
+// Game elements into JS Variables
 var gameResults = document.getElementById(`game-results`);
 var player1Card = document.getElementById(`player-1-card`);
 var player2Card = document.getElementById(`player-2-card`);
 var timerNum = document.getElementById(`timer`);
-
+var card1Text = document.getElementById(`card1-text`);
+var card2Text = document.getElementById(`card2-text`);
 
 // hide all pages but landing page on default
 usernamePage.style.display = 'none';
@@ -290,6 +292,7 @@ function drawCards (){
           // Show image for player 1
           player1Card.setAttribute(`src`, cardUser1.image)
           player1Card.style.display = `block`
+          card1Text.textContent = `${user1.username} - ${cardUser1.value} of ${cardUser1.suit}`
           // Display instructions for player 2
           document.getElementById(`user-playing`).textContent = user2.username
         } else {
@@ -297,6 +300,7 @@ function drawCards (){
           // Show image for player 2
           player2Card.style.display = `block`
           player2Card.setAttribute(`src`, cardUser2.image);
+          card2Text.textContent = `${user2.username} - ${cardUser2.value} of ${cardUser2.suit}`
           game ();
         }
       });
@@ -432,7 +436,7 @@ function displayWin() {
   var winningMoviePosterImg = document.getElementById("movie-poster");
   var winningMovieInfoP = document.getElementById("winning-movie-info");
   // Display the winner  to the win page
-  winnerH2.textContent = "Congratulations " + winner.username;
+  winnerH2.textContent = "Congratulations " + winner.username + "!";
   // Initialize all variables needed
   var winningPlot = winner.plotSelected;
   let winningTitle = null;
