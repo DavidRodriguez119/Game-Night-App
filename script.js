@@ -63,6 +63,19 @@ plotPickerPage.style.display = 'none';
 gamePage.style.display = 'none';
 winPage.style.display = 'none';
 
+// Create the empty p tag and call dislpay function on page load
+var lastTimeP = document.createElement("p");
+displayLastWinner();
+// FUnction to dislpay the last winner if it exists, is called on page load and when you play again
+function displayLastWinner() {
+if (localStorage.getItem("lastWinner" && "lastMovie") !== null) {
+var previousWinner = localStorage.getItem("lastWinner");
+var previousMovie = localStorage.getItem("lastMovie")
+lastTimeP.textContent = "Last time you played " + previousWinner + " won and you watched " + previousMovie + " who will win this time?"
+landingPage.appendChild(lastTimeP);
+};
+}
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('select');
@@ -346,6 +359,7 @@ againButton.addEventListener(`click`, function(event){
   // Display the Start page
   winPage.style.display = `none`;
   landingPage.style.display = `flex`;  
+  displayLastWinner();
 });
 
 // Function to update username displays after they are entered
@@ -461,4 +475,8 @@ function displayWin() {
   winningMovieH3.textContent = winningTitle;
   winningMoviePosterImg.setAttribute("src", winningPoster);
   winningMovieInfoP.textContent = "Fun Fact: " + winningTitle + " was released in " + winningYear + " and was directed by " + winningDirector + ".";
+
+  // Locally store the last winner and title
+  localStorage.setItem("lastWinner", winner.username);
+  localStorage.setItem("lastMovie", winningTitle);
 };
