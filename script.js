@@ -22,6 +22,12 @@ var movies = {
   horror: {
 
   },
+  comedy: {
+
+  },
+  romance: {
+
+  }
 };
 
 // Store the initial deck in the following variable
@@ -138,6 +144,36 @@ for (let i = 0; i < action.length; i++) {
     });
 };
 
+// Movies Fetch for comedy
+var comedy = [`step brothers`, `airplane`, `strays`, `anger management`, `21 jump street`];
+var comedyURL = comedy.map((str) => str.replace(/ /g, `+`));
+var comedyVariables = comedy.map((str) => str.replace(/ /g, ``));
+
+for (let i = 0; i < comedy.length; i++) {
+  var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${comedyURL[i]}`;
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      movies.comedy[comedyVariables[i]] = data
+    });
+};
+
+var romance = [`a star is born`, `the notebook`, `la la land`, `the vow`, `brokeback mountain`];
+var romanceURL = romance.map((str) => str.replace(/ /g, `+`));
+var romanceVariables = romance.map((str) => str.replace(/ /g, ``));
+
+for (let i = 0; i < romance.length; i++) {
+  var requestUrl = `https://www.omdbapi.com/?apikey=b8b94e2d&t=${romanceURL[i]}`;
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      movies.romance[romanceVariables[i]] = data
+    });
+};
 // Deck of Cards Fetch
 var requestUrl = `https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`;
 fetch(requestUrl)
