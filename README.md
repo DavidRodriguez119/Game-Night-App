@@ -20,19 +20,19 @@ This webpage was made using HTML, CSS, JavaScript and Materialize, and utilizes 
 ## Operating Instructions
 
 1. Hit the 'Start' button to begin.
-![Main page of website with introduction and start button](./assets/Main%20Page.png)
+![Main page of website with introduction and start button](./assets/img/Main%20Page.png)
 2. Enter Player 1 and Player 2 names.
-![Page with forms for entering Player 1 and Player 2 names](./assets/Player%20Name%20Page.png)
+![Page with forms for entering Player 1 and Player 2 names](./assets/img/Player%20Name%20Page.png)
 3. Each player should use the dropdown menus to select which genre to generate plots for.
-![Page with dropwdown menus for selecting film genres for 2 players](./assets/Genre%20Select%20Page.png)
+![Page with dropwdown menus for selecting film genres for 2 players](./assets/img/Genre%20Select%20Page.png)
 4. Each player should select the plot that is most appealing to them.
-![Page with multiple choice inputs for selecting film plots for 2 players](./assets/Plot%20Select%20Page.png)
+![Page with multiple choice inputs for selecting film plots for 2 players](./assets/img/Plot%20Select%20Page.png)
 5. Each player should draw a card from the deck.
-![Page with a deck of cards and two cards drawn and face-up](./assets/Card%20Game%20Page.png)
+![Page with a deck of cards and two cards drawn and face-up](./assets/img/Card%20Game%20Page.png)
 6. The Movie Selector game will determine the winning card, and therefore the winning movie.
 
 7. Using the 'Play Again' button will start the game over from the beginning.
-![Page showing the poster of the film selected by the game winner with a 'Play Again' button](./assets/Game%20Over%20Page.png)
+![Page showing the poster of the film selected by the game winner with a 'Play Again' button](./assets/img/Game%20Over%20Page.png)
 
 ## File Manifest
 
@@ -40,16 +40,21 @@ This webpage was made using HTML, CSS, JavaScript and Materialize, and utilizes 
 2. script.js
 3. README.md
 4. LICENSE.md
-5. Asssets
-6. style.CSS
-7. card-op1.png
-8. card-op2.png
-9. Main Page.png
-10. Player Name Page.png
-11. Genre Select Page.png
-12. Plot Select Page.png
-13. Card Game Page.png
-14. Game Over Page.png
+5. Assets
+6. css 
+    - style.CSS
+7. img
+    - card-op1.png
+    - card-op2.png
+    - Main Page.png
+    - Player Name Page.png
+    - Genre Select Page.png
+    - Plot Select Page.png
+    - Card Game Page.png
+    - Game Over Page.png
+8. js
+    - script.js
+
 
 ## Project Requirements
 
