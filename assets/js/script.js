@@ -82,12 +82,12 @@ var lastTimeP = document.createElement("p");
 displayLastWinner();
 // FUnction to dislpay the last winner if it exists, is called on page load and when you play again
 function displayLastWinner() {
-if (localStorage.getItem("lastWinner" && "lastMovie") !== null) {
-var previousWinner = localStorage.getItem("lastWinner");
-var previousMovie = localStorage.getItem("lastMovie")
-lastTimeP.textContent = "Last time you played " + previousWinner + " won and you watched " + previousMovie + "!  Who will win this time?"
-landingPage.appendChild(lastTimeP);
-};
+  if (localStorage.getItem("lastWinner" && "lastMovie") !== null) {
+    var previousWinner = localStorage.getItem("lastWinner");
+    var previousMovie = localStorage.getItem("lastMovie")
+    lastTimeP.textContent = "Last time you played " + previousWinner + " won and you watched " + previousMovie + "!  Who will win this time?"
+    landingPage.appendChild(lastTimeP);
+  };
 }
 
 // When the app is loaded do the following:
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Movies Fetch for animation
-var animation = [`soul`, `the lion king`, `spirited away`, `spider-man: across the spider-verse`, `kubo and the two strings`];
+var animation = [`soul`, `the lion king`, `spirited away`, `spider-man: across the spider-verse`, `kubo and the two strings`, `onward`, `inside out`, `shrek`, `big hero 6`, `how to train your dragon`];
 var animationURL = animation.map((str) => str.replace(/ /g, `+`));
 var animationVariables = animation.map((str) => str.replace(/ /g, ``));
 
@@ -113,7 +113,7 @@ for (let i = 0; i < animation.length; i++) {
 };
 
 // Movies Fetch for horror
-var horror = [`the unholy`, `the conjuring`, `the pope's exorcist`, `annabelle comes home`, `the exorcist`];
+var horror = [`the unholy`, `the conjuring`, `the pope's exorcist`, `annabelle comes home`, `the exorcist`, `american psycho`, `halloween`, `barbarian`, `the ring`, `insidious`];
 var horrorURL = horror.map((str) => str.replace(/ /g, `+`));
 var horrorVariables = horror.map((str) => str.replace(/ /g, ``));
 
@@ -129,7 +129,7 @@ for (let i = 0; i < horror.length; i++) {
 };
 
 // Movies Fetch for action
-var action = [`die hard`, `john wick`, `the matrix`, `casino royale`, `the dark knight rises`];
+var action = [`die hard`, `john wick`, `the matrix`, `casino royale`, `the dark knight rises`, `upgrade`, `terminator 2`, `red dawn`];
 var actionURL = action.map((str) => str.replace(/ /g, `+`));
 var actionVariables = action.map((str) => str.replace(/ /g, ``));
 
@@ -145,7 +145,7 @@ for (let i = 0; i < action.length; i++) {
 };
 
 // Movies Fetch for comedy
-var comedy = [`step brothers`, `airplane`, `strays`, `anger management`, `21 jump street`];
+var comedy = [`step brothers`, `airplane`, `strays`, `anger management`, `21 jump street`, `that's my boy`, `the 40-year-old virgin`, `borat`, `bridesmaids`, `happy gilmore`, `hot rod`];
 var comedyURL = comedy.map((str) => str.replace(/ /g, `+`));
 var comedyVariables = comedy.map((str) => str.replace(/ /g, ``));
 
@@ -160,7 +160,7 @@ for (let i = 0; i < comedy.length; i++) {
     });
 };
 
-var romance = [`a star is born`, `the notebook`, `la la land`, `the vow`, `brokeback mountain`];
+var romance = [`a star is born`, `the notebook`, `la la land`, `the vow`, `brokeback mountain`, `titanic`, `me before you`, `a walk to remember`, `across the universe`];
 var romanceURL = romance.map((str) => str.replace(/ /g, `+`));
 var romanceVariables = romance.map((str) => str.replace(/ /g, ``));
 
@@ -197,9 +197,9 @@ submitButton.addEventListener(`click`, function (event) {
   var player1 = document.getElementById(`player-1`);
   var player2 = document.getElementById(`player-2`);
   // check if the users enter their usernames
-  if (player1.value === `` || player2.value === ``){
+  if (player1.value === `` || player2.value === ``) {
     // var elems = usernamesModal;
-    var  modalInstance = M.Modal.init(usernamesModal);
+    var modalInstance = M.Modal.init(usernamesModal);
     modalInstance.open();
   } else {
     // Store the usernames
@@ -217,7 +217,7 @@ genreButton.addEventListener(`click`, function (event) {
   event.preventDefault();
   // Check for valid selection
   if (selectP1.value === "" || selectP2.value === "") {
-    var  modalInstance = M.Modal.init(genreModal);
+    var modalInstance = M.Modal.init(genreModal);
     modalInstance.open();
   } else {
     // Store the selected genres
@@ -226,50 +226,69 @@ genreButton.addEventListener(`click`, function (event) {
 
     var genreSelectedObject1 = Object.keys(movies[user1.genreSelected]);
     var genreSelectedObject2 = Object.keys(movies[user2.genreSelected]);
-    // Display plots based on user1 genre
-    for (let i = 0; i < genreSelectedObject1.length; i++) {
-      // Create elements 
-      var containerP = document.createElement(`p`);
-      var label = document.createElement(`label`);
-      var checkbox = document.createElement(`input`);
-      checkbox.setAttribute(`type`, `radio`);
-      checkbox.setAttribute(`name`, `checkbox-p1`)
-      containerP.setAttribute(`class`, 'checkbox-container');
-      var plotText = document.createElement(`span`);
-      // Select the i plot
-      var plot = movies[user1.genreSelected][genreSelectedObject1[i]].Plot
-      // add content to the span tag
-      plotText.textContent = plot;
-      // append elements
-      plotPickerP1.appendChild(containerP);
-      containerP.appendChild(label);
-      label.append(checkbox, plotText);
-    };
-    // Display plots based on user2 genre
-    for (let i = 0; i < genreSelectedObject2.length; i++) {
-      // Create elements 
-      var containerP = document.createElement(`p`);
-      var label = document.createElement(`label`);
-      var checkbox = document.createElement(`input`);
-      checkbox.setAttribute(`type`, `radio`);
-      checkbox.setAttribute(`name`, `checkbox-p2`);
-      containerP.setAttribute(`class`, 'checkbox-container');
-      var plotText = document.createElement(`span`);
-      // Select the i plot
-      var plot = movies[user2.genreSelected][genreSelectedObject2[i]].Plot
-      // add content to the span tag
-      plotText.textContent = plot;
-      // append elements
-      plotPickerP2.appendChild(containerP);
-      containerP.appendChild(label);
-      label.append(checkbox, plotText);
-    };
 
-    // Display next page
-    genrePage.style.display = `none`;
-    plotPickerPage.style.display = `flex`;
-    checkboxContainer = document.getElementsByClassName("checkbox-container");
+    // Function to randomly shuffle the array fed into it
+    function shuffle(array) {
+      let currentIndex = array.length;
+      // While loop that uses the Fisher Yates Shuffle
+      while (currentIndex > 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
   }
+  // Calls the function and passes in each genre array
+  shuffle(genreSelectedObject1);
+  shuffle(genreSelectedObject2);
+  // Pulls out the first 5 options from the shuffled array
+  var randomPlotP1 = genreSelectedObject1.slice(0, 5);
+  var randomPlotP2 = genreSelectedObject2.slice(0, 5);
+
+  // Display plots based on user1 genre
+  for (let i = 0; i < randomPlotP1.length; i++) {
+    // Create elements 
+    var containerP = document.createElement(`p`);
+    var label = document.createElement(`label`);
+    var checkbox = document.createElement(`input`);
+    checkbox.setAttribute(`type`, `radio`);
+    checkbox.setAttribute(`name`, `checkbox-p1`)
+    containerP.setAttribute(`class`, 'checkbox-container');
+    var plotText = document.createElement(`span`);
+    // Select the i plot
+    var plot = movies[user1.genreSelected][randomPlotP1[i]].Plot
+    // add content to the span tag
+    plotText.textContent = plot;
+    // append elements
+    plotPickerP1.appendChild(containerP);
+    containerP.appendChild(label);
+    label.append(checkbox, plotText);
+  };
+  // Display plots based on user2 genre
+  for (let i = 0; i < randomPlotP2.length; i++) {
+    // Create elements 
+    var containerP = document.createElement(`p`);
+    var label = document.createElement(`label`);
+    var checkbox = document.createElement(`input`);
+    checkbox.setAttribute(`type`, `radio`);
+    checkbox.setAttribute(`name`, `checkbox-p2`);
+    containerP.setAttribute(`class`, 'checkbox-container');
+    var plotText = document.createElement(`span`);
+    // Select the i plot
+    var plot = movies[user2.genreSelected][randomPlotP2[i]].Plot
+    // add content to the span tag
+    plotText.textContent = plot;
+    // append elements
+    plotPickerP2.appendChild(containerP);
+    containerP.appendChild(label);
+    label.append(checkbox, plotText);
+  };
+
+  // Display next page
+  genrePage.style.display = `none`;
+  plotPickerPage.style.display = `flex`;
+  checkboxContainer = document.getElementsByClassName("checkbox-container");
 });
 
 plotButton.addEventListener(`click`, function (event) {
@@ -289,8 +308,8 @@ plotButton.addEventListener(`click`, function (event) {
     }
   }
   // Conditional statement to check if one is checked
-  if (!isCheckedP1) {    
-    var  modalInstance = M.Modal.init(plotsModal);
+  if (!isCheckedP1) {
+    var modalInstance = M.Modal.init(plotsModal);
     modalInstance.open();
     // Return to prevent double alerts
     return;
@@ -305,7 +324,7 @@ plotButton.addEventListener(`click`, function (event) {
     }
     // Conditional statement to check if one is checked
     if (!isCheckedP2) {
-      var  modalInstance = M.Modal.init(plotsModal);
+      var modalInstance = M.Modal.init(plotsModal);
       modalInstance.open();
     } else {
       // Grab the spans containing plots
@@ -405,7 +424,7 @@ againButton.addEventListener(`click`, function (event) {
   };
   // Display the Start page
   winPage.style.display = `none`;
-  landingPage.style.display = `flex`;  
+  landingPage.style.display = `flex`;
   // Call function to display last winner message
   displayLastWinner();
 });
@@ -461,7 +480,7 @@ function game() {
 }
 
 // timer to change from game page to win page
-function timer(){
+function timer() {
   var timeLeft = 5;
 
   var timeInterval = setInterval(function () {
