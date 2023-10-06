@@ -118,7 +118,7 @@ option {
     text-align: center;
 }
 
-#username-form, #genre-form, #win-page {
+#username-form, #genre-form{
     width: 100%;
     display: flex;
     flex-direction: column;
