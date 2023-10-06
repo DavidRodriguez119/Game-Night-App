@@ -27,7 +27,7 @@
                 decide
                 which movie you will watch on movie night! Have fun and don't forget the popcorn.
             </p>
-            <a class="waves-effect waves-light btn-large button-color" id="start-button">Start</a>
+            <a class="waves-effect waves-light btn-large button-color animated-btn" id="start-button">Start</a>
         </section>
 
         <!-- Username page section -->
@@ -40,7 +40,7 @@
                       <p>Please make sure to enter a username for each person.</p>
                     </div>
                     <div class="modal-footer">
-                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat animated-btn">Agree</a>
                     </div>
                 </div>
                 <!-- Usernames-Page Content -->
@@ -55,7 +55,7 @@
                         <label class="active" for="player-2">Player 2</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light button-color" type="submit" name="action"
+                <button class="btn waves-effect waves-light button-color animated-btn" type="submit" name="action"
                     id="submit-button">Submit
                     <i class="material-icons right"></i>
                 </button>
@@ -71,7 +71,7 @@
                     <p>Please select genres for both players.</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat animated-btn">Agree</a>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@
                     </select>
                     <label class="username-display-p2"></label>
                 </div>
-                <button class="btn waves-effect waves-light button-color" type="submit" name="action"
+                <button class="btn waves-effect waves-light button-color animated-btn" type="submit" name="action"
                     id="genre-button">Submit
                     <i class="material-icons right"></i>
                 </button>
@@ -106,7 +106,7 @@
                     <p>Please select one plot per player</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat animated-btn">Agree</a>
                 </div>
             </div>
             <!-- Plot Picker Page Content -->
@@ -117,13 +117,13 @@
             <form action="#" id="plot-picker-p2">
                 <p class="username-display-p2"></p>
             </form>
-            <a class="waves-effect waves-light btn-large button-color" id="plot-picker-button">Play Game</a>
+            <a class="waves-effect waves-light btn-large button-color animated-btn" id="plot-picker-button">Play Game</a>
         </section>
 
         <!-- Game page section -->
         <section id="game-page" class="holder">
             <p><span class="username-display-p1" id="user-playing"></span> draw a card by clicking on the deck:</p>
-            <img id="deck-img" src="assets/img/card-op1.png" alt="image of a deck of cards">
+            <div id="deck-container"><img class="animated-btn" id="deck-img" src="assets/img/card-op1.png" alt="image of a deck of cards"></div>
             <div id="cards-container">
                 <div id="card1-container">
                     <img id="player-1-card" src="" alt="card picked by user1">
@@ -146,7 +146,7 @@
             <h3 id="winning-movie" class="card-title"></h3>
             <img id="movie-poster" src="" alt="">
             <p id="winning-movie-info"></p>
-            <a class="waves-effect waves-light btn-large button-color" id="again-button">Play Again</a>
+            <a class="waves-effect waves-light btn-large button-color animated-btn" id="again-button">Play Again</a>
 
         </section>
     </main>
