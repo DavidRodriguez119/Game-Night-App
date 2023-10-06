@@ -127,7 +127,26 @@ option {
 }
 
 #plot-picker-page {
-    align-items: left;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: solid rgba(255, 255, 255, 1);
+    background: rgba(53, 101, 77, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    color: white;
+    max-width: 80%;
+}
+
+#plot-picker-page h5 {
+    align-self: center;
+}
+
+#plot-picker-page a {
+    align-self: center;
 }
 
 .container-p {
