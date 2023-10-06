@@ -148,10 +148,3 @@ option {
 #plot-picker-page a {
     align-self: center;
 }
-
-.container-p {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: center; */
-    align-items: center;
-}
