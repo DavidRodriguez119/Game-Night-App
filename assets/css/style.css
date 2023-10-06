@@ -69,6 +69,10 @@ option {
     color: white; 
 }
 
+#start-button, #plot-picker-button, #deck-img, #again-button {
+    margin: 15px;
+}
+
 #game-page img{
     width: 150px;
     height: auto;
@@ -116,4 +120,20 @@ option {
 
 #winner-h2 {
     text-align: center;
+}
+
+.animated-btn {
+    transition: transform 0.3s;
+}
+
+.animated-btn:hover {
+    transform: translateY(-10px);
+}
+
+#deck-container {
+    padding: 20px;
+}
+
+#game-page {
+    height: max-content;
 }
