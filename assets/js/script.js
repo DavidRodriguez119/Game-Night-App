@@ -274,6 +274,7 @@ genreButton.addEventListener(`click`, function (event) {
     checkbox.setAttribute(`type`, `radio`);
     checkbox.setAttribute(`name`, `checkbox-p2`);
     containerP.setAttribute(`class`, 'checkbox-container');
+    containerP.setAttribute(`class`, `container-p`);
     var plotText = document.createElement(`span`);
     // Select the i plot
     var plot = movies[user2.genreSelected][randomPlotP2[i]].Plot

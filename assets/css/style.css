@@ -125,3 +125,14 @@ option {
     align-items: center;
     justify-content: center;
 }
+
+#plot-picker-page {
+    align-items: left;
+}
+
+.container-p {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+}
