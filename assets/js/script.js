@@ -347,6 +347,7 @@ var clicks = 0
 function drawCards() {
   clicks++;
   gameResults.textContent = ``
+  
   if (clicks <= 2) {
     // When the image is clicked, draw a card for user1
     var requestUrl = `https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`
@@ -362,6 +363,7 @@ function drawCards() {
           player1Card.setAttribute(`src`, cardUser1.image)
           player1Card.style.display = `block`
           card1Text.textContent = `${user1.username} - ${cardUser1.value} of ${cardUser1.suit}`
+          player1Card.style.border = "none";
           // Display instructions for player 2
           document.getElementById(`user-playing`).textContent = user2.username
         } else {
@@ -370,6 +372,7 @@ function drawCards() {
           player2Card.style.display = `block`
           player2Card.setAttribute(`src`, cardUser2.image);
           card2Text.textContent = `${user2.username} - ${cardUser2.value} of ${cardUser2.suit}`
+          player2Card.style.border = "none";
           game();
         }
       });
@@ -466,6 +469,8 @@ function game() {
     document.getElementById(`user-playing`).textContent = user1.username
     clicks = 0
     deckImg.addEventListener(`click`, drawCards);
+    player1Card.style.border = "solid 4px yellow";
+    player2Card.style.border = "solid 4px yellow";
     return;
   } else if (value1 > value2) {
     gameResults.textContent = `${cardUser1.value} beats ${cardUser2.value}. ${user1.username} wins!`
