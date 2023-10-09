@@ -69,6 +69,10 @@ option {
     color: white; 
 }
 
+#start-button, #plot-picker-button, #deck-img, #again-button {
+    margin: 15px;
+}
+
 #game-page img{
     width: 150px;
     height: auto;
@@ -116,4 +120,50 @@ option {
 
 #winner-h2 {
     text-align: center;
+}
+
+#username-form, #genre-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#plot-picker-page {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: solid rgba(255, 255, 255, 1);
+    background: rgba(53, 101, 77, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    color: white;
+    max-width: 80%;
+}
+
+#plot-picker-page h5 {
+    align-self: center;
+}
+
+#plot-picker-page a {
+    align-self: center;
+}
+.animated-btn {
+    transition: transform 0.3s;
+}
+
+.animated-btn:hover {
+    transform: translateY(-10px);
+}
+
+#deck-container {
+    padding: 20px;
+}
+
+#game-page {
+    height: max-content;
 }
