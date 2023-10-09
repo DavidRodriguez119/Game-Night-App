@@ -90,6 +90,20 @@ function displayLastWinner() {
   };
 }
 
+// Function to set default usernames to whoever played last
+displayLastPlayers();
+function displayLastPlayers() {
+  var lastP1Name =localStorage.getItem("lastP1Name");
+  var lastP2Name =localStorage.getItem("lastP2Name");
+  // Validates and pulls local storage usernames
+  if (localStorage.getItem("lastP1Name" && "lastP2Name")) {
+    var player1 = document.getElementById(`player-1`);
+    var player2 = document.getElementById(`player-2`);
+    player1.value = lastP1Name;
+    player2.value = lastP2Name;
+  }
+}
+
 // When the app is loaded do the following:
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('select');
@@ -285,6 +299,12 @@ genreButton.addEventListener(`click`, function (event) {
     containerP.appendChild(label);
     label.append(checkbox, plotText);
   };
+
+  // Locally store players and genre selected
+  localStorage.setItem("lastP1Name", user1.username);
+  localStorage.setItem("lastP2Name", user2.username);
+  localStorage.setItem("lastP1Genre", user1.genreSelected);
+  localStorage.setItem("lastP2Genre", user2.genreSelected);
 
   // Display next page
   genrePage.style.display = `none`;
