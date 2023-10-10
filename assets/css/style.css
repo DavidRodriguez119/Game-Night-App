@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     color: white;
     max-width: 80%;
 }
@@ -166,4 +166,35 @@ option {
 
 #game-page {
     height: max-content;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 220%;
+    }
+    h3, h5 {
+        font-size: 140%;
+    }
+    p {
+        font-size: 130%;
+    }
+    #movie-poster {
+        width: 80%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    #card1-container, #card2-container {
+        width: 50%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    #player-1-card, #player-2-card {
+        width: 100% !important;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
 }

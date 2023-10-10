@@ -288,7 +288,6 @@ genreButton.addEventListener(`click`, function (event) {
     checkbox.setAttribute(`type`, `radio`);
     checkbox.setAttribute(`name`, `checkbox-p2`);
     containerP.setAttribute(`class`, 'checkbox-container');
-    containerP.setAttribute(`class`, `container-p`);
     var plotText = document.createElement(`span`);
     // Select the i plot
     var plot = movies[user2.genreSelected][randomPlotP2[i]].Plot
@@ -303,8 +302,6 @@ genreButton.addEventListener(`click`, function (event) {
   // Locally store players and genre selected
   localStorage.setItem("lastP1Name", user1.username);
   localStorage.setItem("lastP2Name", user2.username);
-  localStorage.setItem("lastP1Genre", user1.genreSelected);
-  localStorage.setItem("lastP2Genre", user2.genreSelected);
 
   // Display next page
   genrePage.style.display = `none`;
@@ -441,9 +438,8 @@ againButton.addEventListener(`click`, function (event) {
 
   // reset the clicks variable
   clicks = 0;
-  var checkboxLength = checkboxContainer.length;
 
-  for (let i = 0; i < checkboxLength; i++) {
+  while (checkboxContainer.length > 0) {
     checkboxContainer[0].remove();
   };
   // Display the Start page
